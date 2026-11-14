@@ -1,0 +1,918 @@
+{
+  "project": "C:\\Users\\yuvaj\\Downloads\\Insurance-Fraud-Detection-starter\\Insurance-Fraud-Detection",
+  "files": {
+    "backend": [
+      "backend\\Dockerfile",
+      "backend\\requirements.txt",
+      "backend\\app\\claimant_api.py",
+      "backend\\app\\claim_intake_api.py",
+      "backend\\app\\claim_intake_api.py.before_investigations.bak",
+      "backend\\app\\claim_intake_network_api.py",
+      "backend\\app\\database.py",
+      "backend\\app\\fraud_api.py",
+      "backend\\app\\fraud_engine.py",
+      "backend\\app\\fraud_engine.py.before-false-positive-fix",
+      "backend\\app\\main.py",
+      "backend\\app\\main.py.bak",
+      "backend\\app\\main.py.before-cors-fix",
+      "backend\\app\\main.py.before_investigations.bak",
+      "backend\\app\\main.py.network.bak",
+      "backend\\app\\network_analysis.py",
+      "backend\\app\\__init__.py",
+      "backend\\tests\\test_smoke.py",
+      "backend\\app\\models\\entities.py",
+      "backend\\app\\models\\__init__.py",
+      "backend\\app\\routers\\README.md",
+      "backend\\app\\routers\\__init__.py",
+      "backend\\app\\schemas\\README.md",
+      "backend\\app\\schemas\\__init__.py",
+      "backend\\app\\services\\fraud_detection.py",
+      "backend\\app\\services\\graph_analysis.py",
+      "backend\\app\\services\\investigation.py",
+      "backend\\app\\services\\risk_scoring.py",
+      "backend\\app\\services\\validation.py",
+      "backend\\app\\services\\__init__.py",
+      "backend\\app\\utils\\README.md",
+      "backend\\app\\utils\\__init__.py"
+    ],
+    "frontend/src": [
+      "frontend\\src\\App.tsx",
+      "frontend\\src\\App.tsx.bak",
+      "frontend\\src\\ClaimantManagement.tsx",
+      "frontend\\src\\FraudIntelligence.tsx",
+      "frontend\\src\\main.tsx",
+      "frontend\\src\\NewClaimApp.tsx",
+      "frontend\\src\\style.css",
+      "frontend\\src\\vite-env.d.ts",
+      "frontend\\src\\services\\api.ts"
+    ],
+    "scripts": [
+      "scripts\\calculate_fraud_scores.py",
+      "scripts\\compliance_audit.py",
+      "scripts\\create_schema_v2.py",
+      "scripts\\evaluate_fraud.py",
+      "scripts\\evaluate_model.py",
+      "scripts\\generate_data.py",
+      "scripts\\generate_data_v2.py",
+      "scripts\\generate_data_v2.py.before_canonical_edges.bak",
+      "scripts\\generate_data_v2.py.before_edge_fix.bak",
+      "scripts\\generate_data_v2.py.damaged",
+      "scripts\\import_insurance_data.py",
+      "scripts\\load_data_v2.py",
+      "scripts\\populate_fraud_v2.py",
+      "scripts\\validate_data.py",
+      "scripts\\validate_data_v2.py",
+      "scripts\\fixtures\\relationship_edges_seed_20261022.csv"
+    ],
+    "docs": [
+      "docs\\ARCHITECTURE.md",
+      "docs\\BUSINESS_RULES.md",
+      "docs\\COMPLIANCE_AUDIT.json",
+      "docs\\DATA_DICTIONARY.md",
+      "docs\\FINAL_TEST_REPORT.json",
+      "docs\\REPRODUCIBILITY_REPORT.json"
+    ],
+    "data": [
+      "data\\generated\\.gitkeep",
+      "data\\generated\\checksums.json",
+      "data\\generated\\claimants.csv",
+      "data\\generated\\claims.csv",
+      "data\\generated\\incidents.csv",
+      "data\\generated\\invoices.csv",
+      "data\\generated\\manifest.json",
+      "data\\generated\\payments.csv",
+      "data\\generated\\policies.csv",
+      "data\\generated\\providers.csv",
+      "data\\generated\\relationship_edges.csv",
+      "data\\generated\\validation_report.json",
+      "data\\ground_truth\\.gitkeep",
+      "data\\ground_truth\\ground_truth.csv",
+      "data\\step40_test\\insurance_schema_v2.db",
+      "data\\step41_test\\insurance_schema_v2.db",
+      "data\\step41_test\\exceptions\\invalid_policy_claims.csv",
+      "data\\step41_test\\generated\\checksums.json",
+      "data\\step41_test\\generated\\claimants.csv",
+      "data\\step41_test\\generated\\claims.csv",
+      "data\\step41_test\\generated\\incidents.csv",
+      "data\\step41_test\\generated\\invoices.csv",
+      "data\\step41_test\\generated\\manifest.json",
+      "data\\step41_test\\generated\\payments.csv",
+      "data\\step41_test\\generated\\policies.csv",
+      "data\\step41_test\\generated\\providers.csv",
+      "data\\step41_test\\generated\\relationship_edges.csv",
+      "data\\step41_test\\ground_truth\\ground_truth.csv",
+      "data\\step41_repeat\\exceptions\\invalid_policy_claims.csv",
+      "data\\step41_repeat\\generated\\checksums.json",
+      "data\\step41_repeat\\generated\\claimants.csv",
+      "data\\step41_repeat\\generated\\claims.csv",
+      "data\\step41_repeat\\generated\\incidents.csv",
+      "data\\step41_repeat\\generated\\invoices.csv",
+      "data\\step41_repeat\\generated\\manifest.json",
+      "data\\step41_repeat\\generated\\payments.csv",
+      "data\\step41_repeat\\generated\\policies.csv",
+      "data\\step41_repeat\\generated\\providers.csv",
+      "data\\step41_repeat\\generated\\relationship_edges.csv",
+      "data\\step41_repeat\\ground_truth\\ground_truth.csv",
+      "data\\step38_test\\exceptions\\invalid_policy_claims.csv",
+      "data\\step38_test\\generated\\checksums.json",
+      "data\\step38_test\\generated\\claimants.csv",
+      "data\\step38_test\\generated\\claims.csv",
+      "data\\step38_test\\generated\\incidents.csv",
+      "data\\step38_test\\generated\\invoices.csv",
+      "data\\step38_test\\generated\\manifest.json",
+      "data\\step38_test\\generated\\payments.csv",
+      "data\\step38_test\\generated\\policies.csv",
+      "data\\step38_test\\generated\\providers.csv",
+      "data\\step38_test\\generated\\relationship_edges.csv",
+      "data\\step38_test\\ground_truth\\ground_truth.csv"
+    ]
+  },
+  "database": {
+    "claimants": {
+      "rows": 2000,
+      "columns": [
+        {
+          "name": "claimant_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claimant_name",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "address_hash",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "phone_hash",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "age",
+          "type": "INTEGER",
+          "required": false,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "providers": {
+      "rows": 500,
+      "columns": [
+        {
+          "name": "provider_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "provider_name",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "provider_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "address_hash",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "bank_account_hash",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "relationship_edges": {
+      "rows": 8000,
+      "columns": [
+        {
+          "name": "edge_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "source_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "source_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "target_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "target_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "relationship_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "strength",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "policies": {
+      "rows": 2000,
+      "columns": [
+        {
+          "name": "policy_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claimant_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "policy_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "coverage_amount",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "start_date",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "end_date",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claimants",
+          "from": "claimant_id",
+          "to": "claimant_id"
+        }
+      ]
+    },
+    "incidents": {
+      "rows": 5000,
+      "columns": [
+        {
+          "name": "incident_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claimant_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "incident_date",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "incident_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "narrative_hash",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claimants",
+          "from": "claimant_id",
+          "to": "claimant_id"
+        }
+      ]
+    },
+    "claims": {
+      "rows": 5000,
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claimant_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "policy_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "incident_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "claim_date",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "claimed_amount",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "approved_amount",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_score",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "incidents",
+          "from": "incident_id",
+          "to": "incident_id"
+        },
+        {
+          "table": "policies",
+          "from": "policy_id",
+          "to": "policy_id"
+        },
+        {
+          "table": "claimants",
+          "from": "claimant_id",
+          "to": "claimant_id"
+        }
+      ]
+    },
+    "invoices": {
+      "rows": 5000,
+      "columns": [
+        {
+          "name": "invoice_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "provider_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "invoice_number",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "amount",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "providers",
+          "from": "provider_id",
+          "to": "provider_id"
+        },
+        {
+          "table": "claims",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    },
+    "fraud_indicators": {
+      "rows": 3,
+      "columns": [
+        {
+          "name": "indicator_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "indicator_type",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "description",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "score",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "detected_at",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claims",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    },
+    "investigations": {
+      "rows": 2,
+      "columns": [
+        {
+          "name": "investigation_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "priority",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "assigned_analyst",
+          "type": "VARCHAR",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "outcome",
+          "type": "VARCHAR",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claims",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    },
+    "payments": {
+      "rows": 5000,
+      "columns": [
+        {
+          "name": "payment_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "invoice_id",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "amount",
+          "type": "FLOAT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "payment_date",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "VARCHAR",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "invoices",
+          "from": "invoice_id",
+          "to": "invoice_id"
+        },
+        {
+          "table": "claims",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    },
+    "event_history": {
+      "rows": 0,
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "INTEGER",
+          "required": false,
+          "primary_key": true
+        },
+        {
+          "name": "entity_type",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "entity_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "event_type",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "previous_state",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "new_state",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": false
+        },
+        {
+          "name": "event_timestamp",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "actor",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "details",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "claim_intake": {
+      "rows": 5,
+      "columns": [
+        {
+          "name": "claim_id",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": true
+        },
+        {
+          "name": "claimant_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "policy_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "incident_description",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "provider_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "invoice_number",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "claimed_amount",
+          "type": "REAL",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "approved_amount",
+          "type": "REAL",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "payment_amount",
+          "type": "REAL",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "incident_date",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_score",
+          "type": "INTEGER",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "indicators_json",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": []
+    },
+    "claim_intake_events": {
+      "rows": 11,
+      "columns": [
+        {
+          "name": "event_id",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "event_type",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "details_json",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claim_intake",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    },
+    "claim_intake_investigations": {
+      "rows": 1,
+      "columns": [
+        {
+          "name": "investigation_id",
+          "type": "TEXT",
+          "required": false,
+          "primary_key": true
+        },
+        {
+          "name": "claim_id",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "status",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_level",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "risk_score",
+          "type": "INTEGER",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "evidence_json",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "created_at",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        },
+        {
+          "name": "updated_at",
+          "type": "TEXT",
+          "required": true,
+          "primary_key": false
+        }
+      ],
+      "foreign_keys": [
+        {
+          "table": "claim_intake",
+          "from": "claim_id",
+          "to": "claim_id"
+        }
+      ]
+    }
+  },
+  "tests": {
+    "dataset_validation": {
+      "passed": true,
+      "output": "============================================================\nSTEP 39 - SYNTHETIC DATA VALIDATION\n============================================================\nPASS: claimants: unique, nonempty primary keys\nPASS: policies: unique, nonempty primary keys\nPASS: incidents: unique, nonempty primary keys\nPASS: providers: unique, nonempty primary keys\nPASS: claims: unique, nonempty primary keys\nPASS: invoices: unique, nonempty primary keys\nPASS: payments: unique, nonempty primary keys\nPASS: relationship_edges: unique, nonempty primary keys\nPASS: Policies reference existing claimants\nPASS: Incidents reference existing claimants\nPASS: Claims have valid claimant, policy, incident and ownership\nPASS: Invoices reference existing claims and providers\nPASS: Payments reference matching claims and invoices\nPASS: Incident, policy, claim and payment dates are consistent\nPASS: Approved amounts do not exceed claimed amounts\nPASS: Invoice amounts do not exceed approved amounts\nPASS: Exactly one planted payment overage exists\nPASS: Exactly one planted cross-claimant invoice duplication exists\nPASS: All relationship edges reference valid entities\nPASS: Planted missing service relationship is absent\nPASS: Benign shared household address exists\nPASS: Missing policy reference is isolated in exceptions\nPASS: All five ground-truth scenarios are present exactly once\nPASS: Shared household is explicitly labeled benign\nPASS: Manifest counts match generated CSV records\n\n============================================================\nVALIDATION PASSED: All checks successful\n============================================================\n"
+    },
+    "fraud_evaluation": {
+      "passed": true,
+      "output": "\nINSURANCE FRAUD EVALUATION\n============================================================\nGround-truth records: 5\nLabeled claims: 2\nExpected indicators: 4\nEngine detections: 3\nException detections: 1\n\nENGINE INDICATOR METRICS\n---------------------------------------------\nTrue positives: 3\nFalse positives: 0\nFalse negatives: 1\nPrecision: 100.00%\nRecall:    75.00%\nF1 Score:  85.71%\n\nCOMBINED INDICATOR METRICS\n---------------------------------------------\nTrue positives: 4\nFalse positives: 0\nFalse negatives: 0\nPrecision: 100.00%\nRecall:    100.00%\nF1 Score:  100.00%\n\nMISSING INDICATORS\nNone\n\nUNEXPECTED ENGINE DETECTIONS\nNone\n\nEXCEPTION DETECTIONS\nCLM-2026-000002 INVALID_POLICY_FK\n\nEVALUATION NOTES\n- Unlabeled claims are excluded.\n- Benign shared addresses are not fraud labels.\n- Exception checks are separate from live engine detections.\n- Indicator precision and recall use labeled indicators.\n- False-positive rate requires explicit negative labels.\n- All results are based on synthetic data.\n\nEVALUATION FINISHED\n============================================================\n"
+    },
+    "compliance_audit": {
+      "passed": true,
+      "output": "PASS: Dataset scale - 5000 claims, 2000 claimants, 500 providers, 8000 edges\nPASS: Data dictionary - Present\nPASS: Historical events - History/event tables: ['event_history', 'claim_intake_events']\nPASS: Five required scenarios - Found: ['BENIGN_SHARED_ADDRESS', 'DUPLICATE_INVOICE', 'MISSING_POLICY_REFERENCE', 'MISSING_RELATIONSHIP_EDGE', 'PAYMENT_OVERAGE']\nPASS: Manifest and seed - Seed: 20261022\nPASS: Dataset checksums - 8 CSV checksums checked\nPASS: README - Basic generator and validation instructions\n\nAudit report: docs/COMPLIANCE_AUDIT.json\nPassed: 7\nNeeds work: 0\n"
+    }
+  },
+  "documentation": {
+    "README.md": true,
+    "docs/DATA_DICTIONARY.md": true,
+    "docs/REPRODUCIBILITY_REPORT.json": true,
+    "ai_usage/PROMPT_HISTORY.md": false,
+    "ai_usage/AI_USAGE_DISCLOSURE.md": false
+  },
+  "database_foreign_key_violations": []
+}

@@ -1,0 +1,33 @@
+{
+  "generated_at": "2026-11-14T03:14:36.094024+00:00",
+  "checks": {
+    "Dataset scale": {
+      "status": "PASS",
+      "details": "5000 claims, 2000 claimants, 500 providers, 8000 edges"
+    },
+    "Data dictionary": {
+      "status": "PASS",
+      "details": "Present"
+    },
+    "Historical events": {
+      "status": "PASS",
+      "details": "History/event tables: ['event_history', 'claim_intake_events']"
+    },
+    "Five required scenarios": {
+      "status": "PASS",
+      "details": "Found: ['BENIGN_SHARED_ADDRESS', 'DUPLICATE_INVOICE', 'MISSING_POLICY_REFERENCE', 'MISSING_RELATIONSHIP_EDGE', 'PAYMENT_OVERAGE']"
+    },
+    "Manifest and seed": {
+      "status": "PASS",
+      "details": "Seed: 20261022"
+    },
+    "Dataset checksums": {
+      "status": "PASS",
+      "details": "8 CSV checksums checked"
+    },
+    "README": {
+      "status": "PASS",
+      "details": "Basic generator and validation instructions"
+    }
+  }
+}

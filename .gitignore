@@ -1,0 +1,78 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.db
+node_modules/
+dist/
+build/
+.DS_Store
+data/generated/*.csv
+data/generated/*.json
+!data/generated/.gitkeep
+data/ground_truth/*.csv
+!data/ground_truth/.gitkeep
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# Frontend
+node_modules/
+dist/
+
+# Databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Backups
+backup_*/
+*.damaged
+
+# Secrets
+.env
+.env.*
+!.env.example
+
+# Generated test datasets
+data/step41_test/generated/
+data/step41_test/ground_truth/
+data/step41_test/exceptions/
+
+# Editor and logs
+.vscode/
+*.log
+
+# Local backup and temporary files
+backend-backup-*/
+claimant_management_update/
+fraud-backend-fix.zip
+main_error_section.txt
+project_audit_report.txt
+
+# Other local archives
+*.zip
+
+# Local development backups
+*.bak
+*.before-*
+
+# Temporary validation datasets
+data/step38_test/
+data/step41_repeat/
+
+# Development backup files
+*.bak
+*.before-*
+
+# Development backups
+*.bak
+*.before-*
+
+# Temporary test datasets
+data/step38_test/
+data/step41_repeat/

@@ -1,0 +1,16 @@
+{
+  "seed": 20261022,
+  "independent_runs_identical": true,
+  "matches_validated_dataset": true,
+  "method": "Deterministic generation with canonical edge fixture",
+  "checksums": {
+    "claimants.csv": "2f8bf6de1af65d69124bc03dcceaef3ece866cdff2a1614d227b1c64d86eb95c",
+    "claims.csv": "2121c39df258e2a556609455a0d2c93ccd47503de2a014f5f3bdd94945ed8dbe",
+    "incidents.csv": "d9897b0cd32d7ec9f2041ac2870f72dc6a1adec1612197d81881d8fb49f78b0c",
+    "invoices.csv": "e5e531054c4ee6acdfe2a8d570a6e74d16ba9f1b82ec4779c237be4a38c894f2",
+    "payments.csv": "2484d5aa7bab0919e71291232be7ae1fc5e39d960be108671ab068ff9e446e89",
+    "policies.csv": "4b0945bc51ea4bcb9bf0fc637dfff366e511d0269e1cb4b8f29bc12e16e37fb4",
+    "providers.csv": "1ef656efa27a4fc86005893795d613fc429c113adff68b90bb9e25fad9c6c60b",
+    "relationship_edges.csv": "e347a21ccf62ad2aac92816f644cc3e48b5e2d3e1bfe275f05959ae33272a3e8"
+  }
+}
